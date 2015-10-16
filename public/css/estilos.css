@@ -1,0 +1,89 @@
+.navbar-default{
+    background-color: #337ab7;
+}
+.navbar-default .navbar-nav li a{
+    color:#fff;
+}
+.nav-stacked{
+    border: solid 1px #dedfdf;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.21);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.21);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.21);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.nav-stacked li{
+    border-bottom: dotted #c3c5c5 1px;
+}
+
+.navbar-default .navbar-nav .dropdown-menu li a{
+    color: #337ab7;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{color:#337ab7;}
+
+.espaco-livre{position: relative; bottom: 15px;}
+
+.topoTabLista{
+    font-weight: bold;
+}
+
+body{
+    background-color: #f5f5f5;
+}
+
+.breadcrumb{
+    background-color: #dedfdf;
+}
+
+.table-hover>tbody>tr:hover{background-color:#dedfdf}
+
+.btnDireita{
+    float: right;
+}
+
+.brBoth{
+    clear: both;
+}
+
+.editarClIco{
+    color: #0e8e2c;
+}
+
+.enviarClIco{
+    color: #c6bc24;
+}
+
+.excluirClIco{
+    color: #bd2238;
+}
+
+.acaoSucesso{
+    background-color: #19a544;
+    color: #f2f3f2;
+    text-align: center;
+    padding: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.acaoErro{
+    background-color: #c43247;
+    color: #f2f3f2;
+    text-align: center;
+    padding: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-group ul li{
+    color: #f40f30;
+}

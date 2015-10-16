@@ -1,0 +1,23 @@
+<ol class="breadcrumb">
+    <li><a href="<?=$this->url('application/default', array('controller' => 'index'))?>">Eu casando</a></li>
+    <li><a href="#" class="active">Proteção por senha</a></li>
+</ol>
+<br>
+Digite uma senha nos campos abaixo, para que apenas as pessoas que possuam a senha possam acessar o website do seu casamento. Para desabilitar essa opção marque o check no final do formulario.
+<br><br>
+<form>
+    <div class="form-group">
+      <label for="senhaSite1">Senha</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+    </div>
+    <div class="form-group">
+      <label for="senhaSite2">Confirmar Senha</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirmar Senha">
+    </div>
+    <div class="checkbox">
+        <label>
+          <input type="checkbox"> Desabilitar proteção de senha
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>

@@ -1,0 +1,18 @@
+<ul class="nav nav-pills nav-stacked">
+    <li role="presentation" <?=($this->menu == 'Index') ? 'class="active"' : '' ?> ><a href="<?php echo $this->url('application/default', array('controller' => 'index')); ?>"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Home</a></li>
+    <li role="presentation" <?=($this->menu == 'ProtecaoSenha') ? 'class="active"' : '' ?> ><a href="<?=$this->url('application/default', array('controller' => 'protecao-senha')); ?>"><span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;Proteção por senha</a></li>
+    <li role="presentation" <?=($this->menu == 'EnvioDeEmails') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;Envio de Emails</a></li>
+    <li role="presentation" <?=($this->menu == 'EspacoDisponivel') ? 'class="active"' : '' ?> ><a href="<?php echo $this->url('application/default', array('controller' => 'espaco-disponivel')); ?>"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Espaço disponível</a></li>
+    <li role="presentation" <?=($this->menu == 'Paginas') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-duplicate"></span>&nbsp;&nbsp;Paginas</a></li>
+    <li role="presentation" <?=($this->menu == 'ListaDeConvidados') ? 'class="active"' : '' ?> ><a href="<?=$this->url('application/default', array('controller' => 'lista-de-convidados')) ?>"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;Lista de convidados</a></li>
+    <li role="presentation" <?=($this->menu == 'Padrinhos') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-star"></span>&nbsp;&nbsp;Padrinhos</a></li>
+    <li role="presentation" <?=($this->menu == 'DamasEPajens') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp;Damas e pajens</a></li>
+    <li role="presentation" <?=($this->menu == 'ChaDeLangerie') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;Chá de Langerie</a></li>
+    <li role="presentation" <?=($this->menu == 'MensagensRecebidas') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;Mensagens recebidas</a></li>
+    <li role="presentation" <?=($this->menu == 'CerimoniaReligiosa') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-screenshot"></span>&nbsp;&nbsp;Cerimónia religiosa</a></li>
+    <li role="presentation" <?=($this->menu == 'Festa') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-glass"></span>&nbsp;&nbsp;Festa</a></li>
+    <li role="presentation" <?=($this->menu == 'AlbumDeFotos') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-camera"></span>&nbsp;&nbsp;Albúm de Fotos</a></li>
+    <li role="presentation" <?=($this->menu == 'Videos') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-facetime-video"></span>&nbsp;&nbsp;Videos</a></li>
+    <li role="presentation" <?=($this->menu == 'PlanejadorFinanceiro') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-piggy-bank"></span>&nbsp;&nbsp;Planejador Financeiro</a></li>
+    <li role="presentation" <?=($this->menu == 'LayoutsDoSite') ? 'class="active"' : '' ?> ><a href="#"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Layouts do site</a></li>
+</ul>

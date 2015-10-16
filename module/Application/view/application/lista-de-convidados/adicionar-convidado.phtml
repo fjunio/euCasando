@@ -1,0 +1,40 @@
+<ol class="breadcrumb">
+    <li><a href="<?=$this->url('application/default', array('controller' => 'index'))?>">eu casando</a></li>
+    <li><a href="<?=$this->url('application/default', array('controller' => 'lista-de-convidados'))?>" class="active">lista de convidados</a></li>
+    <li><a href="#" class="active">adicionar convidado</a></li>
+</ol>
+<div class="acaoSucesso" >O cadastro foi realizado com sucesso.</div>
+<div class="acaoErro" >Ocorreu um erro ao cadastrar tente novamente mais tarde.</div>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo leo, lacinia eu finibus ut, 
+facilisis in odio. Cras venenatis dui vestibulum orci iaculis 
+venenatis. Pellentesque vulputate lacus id congue vulputate. Donec dignissim tempor orci eu scelerisque.
+<br><br>
+<?php
+    $form = $this->form;
+    $form->prepare();
+    
+    echo $this->form()->openTag($form);
+    ?>
+
+<label for="nome">Nome do convidado</label>
+<div class="form-group">
+    <?= $this->formRow($form->get('nome')); ?>
+</div>
+<label for="email">Email</label>
+<div class="form-group">
+    <?= $this->formRow($form->get('email')); ?>
+</div>
+<label for="adultos">Qtd. Adultos</label>
+<div class="form-group">
+    <?= $this->formRow($form->get('adultos')); ?>
+</div>
+<label for="criancas">Qtd. Crianças</label>
+<div class="form-group">
+    <?= $this->formRow($form->get('criancas')); ?>
+</div>
+
+<?
+echo $this->formRow($form->get('security'));
+echo $this->formSubmit($form->get('send'));
+echo $this->form()->closeTag();
+?>
