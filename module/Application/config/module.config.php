@@ -76,7 +76,8 @@ return array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
             'Application\Controller\EspacoDisponivel' => 'Application\Controller\EspacoDisponivelController',
             'Application\Controller\ListaDeConvidados' => 'Application\Controller\ListaDeConvidadosController',
-            'Application\Controller\ProtecaoSenha' => 'Application\Controller\ProtecaoSenhaController'
+            'Application\Controller\ProtecaoSenha' => 'Application\Controller\ProtecaoSenhaController',
+            'Application\Controller\MensagensRecebidas' => 'Application\Controller\MensagensRecebidasController'
         ),
     ),
      'controller_plugins' => array(
