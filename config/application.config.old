@@ -9,7 +9,6 @@ return array(
     'modules' => array(
         'Application',
         'DoctrineModule',
-        'DoctrineORMModule',
         'ZfcBase',
         'ZfcUser',
         'ZfcRbac',
@@ -20,7 +19,6 @@ return array(
         'LosLog',
         'Dashboard',
         'Pagamento',
-        'ListaVirtual',
     ),
     'module_listener_options' => array(
         'module_paths' => array(

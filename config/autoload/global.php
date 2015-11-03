@@ -28,7 +28,8 @@ return array(
                     'host' => 'localhost',
                     'port' => '3306',
                     'user' => 'root',
-                    'password' => '123456',
+//                    O password deve ficar no arquivo local.php. Para nao subir pro repositorio
+                    'password' => '', 
                     'dbname' => 'eucasando',
                     'charset' => 'UTF8',
                     'driverOptions' => array(
@@ -43,13 +44,6 @@ return array(
                 'configuration' => 'orm_default'
             )
         ),
-        'configuration' => array(
-            'orm_default' => array(
-                'query_cache' => 'apc',
-                'result_cache' => 'apc',
-                'metadata_cache' => 'apc'
-            )
-        )
     ),
     'view_manager' => array(
         'template_map' => array(
