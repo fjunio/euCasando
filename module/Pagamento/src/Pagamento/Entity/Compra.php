@@ -63,7 +63,7 @@ class Compra extends Application\Entity\Base\Entity
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Pessoa")
+     * @ORM\OneToOne(targetEntity="Application\Entity\Pessoa")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Pessoa_id", referencedColumnName="id")
      * })
