@@ -10,14 +10,15 @@
     "require": {
         "php": ">=5.5",
         "zendframework/zendframework": "~2.5",
-        "doctrine/doctrine-orm-module": "0.8",
+        "doctrine/doctrine-orm-module": "0.9",
         "los/losbase": "~2.5",
         "los/losui": "~1.0",
         "zf-commons/zfc-user-doctrine-orm": "~1.0",
         "zf-commons/zfc-rbac": "~2.4"
+        
     },
     "require-dev": {
-        "zendframework/zend-developer-tools": "=0.0.2",
-        "los/loslog": "~1.0"
+        "los/loslog": "~1.0",
+        "zendframework/zftool": "dev-master"
     }
 }

@@ -1,97 +1,134 @@
 <?php
+
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use LosBase\Entity\AbstractEntity;
- 
+
 /**
- * @ORM\Entity
+ * Pessoa
+ *
  * @ORM\Table(name="pessoa")
+ * @ORM\Entity
  */
-class Pessoa extends AbstractEntity
+class Pessoa extends Application\Entity\Base\Entity
 {
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    protected $nome;
-    /**
-     * @ORM\Column(type="string", length=45)
-     */
-    protected $cpf;
-    /**
-     * @ORM\Column(type="string", length=45)
-     */
-    protected $cnpj;
-    /**
-     * @ORM\Column(type="string", length=200)
-     */
-    protected $endereco;
-    /**
-     * @ORM\Column(type="string", length=45)
-     */
-    protected $telefone;
-    /**
-     * @ORM\Column(type="string", length=45)
-     */
-    protected $email;
 
-    function getId() {
-        return $this->id;
-    }
+//    /**
+//     * @var integer
+//     *
+//     * @ORM\Column(name="id", type="integer", nullable=false)
+//     * @ORM\Id
+//     * @ORM\GeneratedValue(strategy="IDENTITY")
+//     */
+//    private $id;
 
-    function getNome() {
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="string", length=255, nullable=false)
+     */
+    private $nome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cpf", type="string", length=45, nullable=true)
+     */
+    private $cpf;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cnpj", type="string", length=45, nullable=true)
+     */
+    private $cnpj;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefone", type="string", length=45, nullable=true)
+     */
+    private $telefone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=45, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="endereco", type="string", length=45, nullable=true)
+     */
+    private $endereco;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="data_nascimento", type="date", nullable=true)
+     */
+    private $dataNascimento;
+    
+    public function getNome() {
         return $this->nome;
     }
 
-    function getCpf() {
+    public function getCpf() {
         return $this->cpf;
     }
 
-    function getCnpj() {
+    public function getCnpj() {
         return $this->cnpj;
     }
 
-    function getEndereco() {
-        return $this->endereco;
-    }
-
-    function getTelefone() {
+    public function getTelefone() {
         return $this->telefone;
     }
 
-    function getEmail() {
+    public function getEmail() {
         return $this->email;
     }
 
-    function setId($id) {
-        $this->id = $id;
+    public function getEndereco() {
+        return $this->endereco;
     }
 
-    function setNome($nome) {
+    public function getDataNascimento() {
+        return $this->dataNascimento;
+    }
+
+    public function setNome($nome) {
         $this->nome = $nome;
     }
 
-    function setCpf($cpf) {
+    public function setCpf($cpf) {
         $this->cpf = $cpf;
     }
 
-    function setCnpj($cnpj) {
+    public function setCnpj($cnpj) {
         $this->cnpj = $cnpj;
     }
 
-    function setEndereco($endereco) {
-        $this->endereco = $endereco;
-    }
-
-    function setTelefone($telefone) {
+    public function setTelefone($telefone) {
         $this->telefone = $telefone;
     }
 
-    function setEmail($email) {
+    public function setEmail($email) {
         $this->email = $email;
     }
-    
-    public function __toString() {
-        return $this->nome;
+
+    public function setEndereco($endereco) {
+        $this->endereco = $endereco;
     }
+
+    public function setDataNascimento(\DateTime $dataNascimento) {
+        $this->dataNascimento = $dataNascimento;
+    }
+
+
+
+
 }
+

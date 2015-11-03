@@ -20,7 +20,6 @@ return array(
         'LosLog',
         'Dashboard',
         'Pagamento',
-        'ListaVirtual',
     ),
     'module_listener_options' => array(
         'module_paths' => array(
