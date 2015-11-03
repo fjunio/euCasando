@@ -30,11 +30,13 @@ return array(
                 'type'    => 'Segment',
                 'options' => array(
                     'route'    => '[]',
-                    'defaults' => array(
-                        '__NAMESPACE__' => 'Application\Controller',
-                        'controller'    => 'Index',
-                        'action'        => 'index',
-                    ),
+                    
+//                    Seta o módulo padrão.
+//                    'defaults' => array(
+//                        '__NAMESPACE__' => 'Application\Controller',
+//                        'controller'    => 'Index',
+//                        'action'        => 'index',
+//                    ),
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
@@ -75,12 +77,12 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\EspacoDisponivel' => 'Application\Controller\EspacoDisponivelController',
-            'Application\Controller\ListaDeConvidados' => 'Application\Controller\ListaDeConvidadosController',
-            'Application\Controller\ProtecaoSenha' => 'Application\Controller\ProtecaoSenhaController',
-            'Application\Controller\MensagensRecebidas' => 'Application\Controller\MensagensRecebidasController',
-            'Application\Controller\PlanejadorFinanceiro' => 'Application\Controller\PlanejadorFinanceiroController'
+//            'Application\Controller\Index' => 'Application\Controller\IndexController',
+//            'Application\Controller\EspacoDisponivel' => 'Application\Controller\EspacoDisponivelController',
+//            'Application\Controller\ListaDeConvidados' => 'Application\Controller\ListaDeConvidadosController',
+//            'Application\Controller\ProtecaoSenha' => 'Application\Controller\ProtecaoSenhaController',
+//            'Application\Controller\MensagensRecebidas' => 'Application\Controller\MensagensRecebidasController',
+//            'Application\Controller\PlanejadorFinanceiro' => 'Application\Controller\PlanejadorFinanceiroController'
         ),
     ),
      'controller_plugins' => array(

@@ -7,24 +7,15 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application\Controller;
+namespace Dashboard\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class IndexController extends AbstractActionController
+class EspacoDisponivelController extends AbstractActionController
 {
     public function indexAction()
     {
-        //$controllerName =$this->params('controller');
-        //$this->getEvent()->getRouteMatch()->getParam('controller', 'index');
-        //$this->layout('layout/layout-secundario');
-        
-        //$plugin = $this->PluginsFuncoes();
-        //$plugin->doSomething();
-        
-        
-        
         return new ViewModel();
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace Application\Controller;
+namespace Dashboard\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Application\Forms\FormAddConvidado;
-use Application\Filter\ListaDeConvidadosFiltros;
-use Application\Entity\ListaDeConvidadosFil;
+use Dashboard\Forms\FormAddConvidado;
+use Dashboard\Filter\ListaDeConvidadosFiltros;
+use Dashboard\Entity\ListaDeConvidadosFil;
 use Zend\Debug\Debug;
 
 

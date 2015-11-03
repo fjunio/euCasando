@@ -11,13 +11,13 @@
  * @author Israel Vinivius
  */
 
-namespace Application\Forms;
+namespace Dashboard\Forms;
 
 //use Zend\Captcha\AdapterInterface as CaptchaAdapter;
 use Zend\Form\Element;
 use Zend\Form\Form;
 use Zend\Form\Fieldset;
-use Application\Entity\ListaDeConvidadosFil;
+use Dashboard\Entity\ListaDeConvidadosFil;
 use Zend\Stdlib\Hydrator\ClassMethods;
 
 class FormAddConvidado extends Form {

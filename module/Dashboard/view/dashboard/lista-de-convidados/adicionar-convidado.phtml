@@ -1,0 +1,38 @@
+<ol class="breadcrumb">
+    <li><a href="<?=$this->url('dashboard/default', array('controller' => 'index'))?>">Início</a></li>
+    <li><a href="<?=$this->url('dashboard/default', array('controller' => 'lista-de-convidados'))?>" class="active">Lista de Convidados</a></li>
+    <li class="active">Adicionar convidado</li>
+</ol>
+<div class="acaoSucesso" >O cadastro foi realizado com sucesso.</div>
+<div class="acaoErro" >Ocorreu um erro ao cadastrar tente novamente mais tarde.</div>
+
+<br><br>
+<?php
+    $form = $this->form;
+    $form->prepare();
+    
+    echo $this->form()->openTag($form);
+    ?>
+
+<label for="nome">Nome do convidado</label>
+<div class="form-group">
+    <?= $this->formRow($form->get('nome')); ?>
+</div>
+<label for="email">Email</label>
+<div class="form-group">
+    <?= $this->formRow($form->get('email')); ?>
+</div>
+<label for="adultos">Qtd. Adultos</label>
+<div class="form-group">
+    <?= $this->formRow($form->get('adultos')); ?>
+</div>
+<label for="criancas">Qtd. Crianças</label>
+<div class="form-group">
+    <?= $this->formRow($form->get('criancas')); ?>
+</div>
+
+<?
+echo $this->formRow($form->get('security'));
+echo $this->formSubmit($form->get('send'));
+echo $this->form()->closeTag();
+?>

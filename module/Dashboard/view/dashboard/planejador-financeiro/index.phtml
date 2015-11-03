@@ -1,0 +1,32 @@
+<ol class="breadcrumb">
+    <li><a href="<?=$this->url('dashboard/default', array('controller' => 'index'))?>">Início</a></li>
+    <li class="active">Planejador Financeiro</li>
+</ol>
+
+<br><br>
+<a href="<?=$this->url('dashboard/default', array('controller' => 'planejador-financeiro', 'action' => 'adicionar-despesa'))?>" >
+    <div class="btn btn-primary btnDireita" >Adicionar Despesa</div>
+</a>
+<br class="brBoth"><br>
+
+<table class="table table-hover">
+    <tr class="topoTabLista">
+        <td><img alt="Varios check" title="clique aqui para marcar todas despesas" src="<?php echo $this->basePath('img/multiplosCheck.png') ?>" ></td>
+        <td>Descrição</td>
+        <td>Categoria</td>
+        <td>Valor</td>
+        <td>Compensado</td>
+        <td>Quem Pagou?</td>
+        <td>Ações</td>
+    </tr>
+    <tr class="topoTabLista">
+    <span style="display: none">
+        <input type="text" width="10">
+        <input type="text" width="10">
+        <input type="text" width="10">
+        <input type="text" width="10">
+        <input type="text" width="10">
+        <input type="hidden">
+    </span>
+    </tr>   
+</table>

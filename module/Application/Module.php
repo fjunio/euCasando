@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -12,59 +13,53 @@ namespace Application;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
-class Module
-{
-    public function onBootstrap(MvcEvent $e)
-    {
-        $eventManager        = $e->getApplication()->getEventManager();
+class Module {
+
+    public function onBootstrap(MvcEvent $e) {
+        $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-        
-        
+
+
         //Utilizar plugin no layout
-        /*$app = $e->getApplication();
-        $sm = $app->getServiceManager();
-        $plugins = $sm->get('ControllerPluginManager');
-        $plugin  = $plugins->get('PluginsFuncoes');
-        
-        $events = $app->getEventManager();
-        $events->attach(
-            MvcEvent::EVENT_RENDER,
-            function($e) use ($plugin) {
-                $viewModel = $e->getViewModel();
-                $viewModel->controllerNome = $plugin->retornaNomeCtrAct('1');
-            },
-            100
-        );*/
-            
+        /* $app = $e->getApplication();
+          $sm = $app->getServiceManager();
+          $plugins = $sm->get('ControllerPluginManager');
+          $plugin  = $plugins->get('PluginsFuncoes');
+
+          $events = $app->getEventManager();
+          $events->attach(
+          MvcEvent::EVENT_RENDER,
+          function($e) use ($plugin) {
+          $viewModel = $e->getViewModel();
+          $viewModel->controllerNome = $plugin->retornaNomeCtrAct('1');
+          },
+          100
+          ); */
+
         $app = $e->getApplication();
         $app->getEventManager()->attach(
-        'dispatch',
-        function($e) {
+                'dispatch', function($e) {
             $routeMatch = $e->getRouteMatch();
             $viewModel = $e->getViewModel();
-            
+
             $controllerNome = $routeMatch->getParam('controller');
-            $actionNome     = $routeMatch->getParam('action');
-            
+            $actionNome = $routeMatch->getParam('action');
+
             $aux = explode("\\", $controllerNome);
             $controllerNome = $aux[2];
-            
+
             $viewModel->setVariable('controllerNome', $controllerNome);
             $viewModel->setVariable('actionNome', $actionNome);
-        },
-        -100
-    );
-        
+        }, -100
+        );
     }
 
-    public function getConfig()
-    {
+    public function getConfig() {
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function getAutoloaderConfig()
-    {
+    public function getAutoloaderConfig() {
         return array(
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
@@ -73,4 +68,5 @@ class Module
             ),
         );
     }
+
 }

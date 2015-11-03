@@ -1,5 +1,5 @@
 <?php
-namespace Application\Entity;
+namespace Dashboard\Entity;
 
 class ListaDeConvidadosFil
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Application\Filter;
+namespace Dashboard\Filter;
 
 use Zend\InputFilter\InputFilter;
 

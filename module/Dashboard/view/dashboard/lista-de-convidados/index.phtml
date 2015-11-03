@@ -1,0 +1,59 @@
+<ol class="breadcrumb">
+    <li><a href="<?=$this->url('dashboard/default', array('controller' => 'index'))?>">Início</a></li>
+    <li class="active">Lista de Convidados</li>
+</ol>
+
+<br><br>
+<a href="<?=$this->url('dashboard/default', array('controller' => 'lista-de-convidados', 'action' => 'adicionar-convidado'))?>" ><div class="btn btn-primary btnDireita" >adicionar um convidado</div></a>
+<br class="brBoth"><br>
+<table class="table table-hover">
+    <tr class="topoTabLista">
+        <td><img alt="Varios check" title="clique aqui para marcar todos os convidados" src="<?php echo $this->basePath('img/multiplosCheck.png') ?>" ></td>
+        <td>Nome</td>
+        <td>Email</td>
+        <td>Adultos</td>
+        <td>Crianças</td>
+        <td>Ações</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></label></td>
+        <td>Ana Cecilia Cardoso</td>
+        <td>anacecila@gmaill.com.br</td>
+        <td>2</td>
+        <td>0</td>
+        <td><span class="glyphicon glyphicon-pencil editarClIco"><span> | <span class="glyphicon glyphicon-envelope enviarClIco"><span> | <span class="glyphicon glyphicon-trash excluirClIco"><span></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></label></td>
+        <td>Wagner Diniz Moura</td>
+        <td>wgane@gmaill.com.br</td>
+        <td>2</td>
+        <td>2</td>
+        <td><span class="glyphicon glyphicon-pencil editarClIco"><span> | <span class="glyphicon glyphicon-envelope enviarClIco"><span> | <span class="glyphicon glyphicon-trash excluirClIco"><span></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></label></td>
+        <td>Luiza Guimarães Rosa</td>
+        <td>luizaguimaraes@gmaill.com.br</td>
+        <td>1</td>
+        <td>0</td>
+        <td><span class="glyphicon glyphicon-pencil editarClIco"><span> | <span class="glyphicon glyphicon-envelope enviarClIco"><span> | <span class="glyphicon glyphicon-trash excluirClIco"><span></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></label></td>
+        <td>Rafael Couto Pereira</td>
+        <td>rafaelcouto@gmaill.com.br</td>
+        <td>2</td>
+        <td>1</td>
+        <td><span class="glyphicon glyphicon-pencil editarClIco"><span> | <span class="glyphicon glyphicon-envelope enviarClIco"><span> | <span class="glyphicon glyphicon-trash excluirClIco"><span></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></label></td>
+        <td>Lucas Boist da Silva</td>
+        <td>lucas-boist@gmaill.com.br</td>
+        <td>2</td>
+        <td>2</td>
+        <td><span class="glyphicon glyphicon-pencil editarClIco"><span> | <span class="glyphicon glyphicon-envelope enviarClIco"><span> | <span class="glyphicon glyphicon-trash excluirClIco"><span></td>
+    </tr>
+</table>
+<a href="<?=$this->url('dashboard/default', array('controller' => 'lista-de-convidados', 'action' => 'adicionar-convidado'))?>"><div class="btn btn-primary btnDireita" >adicionar um convidado</div></a>
