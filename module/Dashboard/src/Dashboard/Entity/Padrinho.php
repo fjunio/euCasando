@@ -36,18 +36,23 @@ class Padrinho extends Application\Entity\Base\Entity
     private $descricao;
 
     /**
-     * @var string
+     * @var \Foto
      *
-     * @ORM\Column(name="caminho_foto", type="string", length=45, nullable=true)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Foto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="foto_id", referencedColumnName="id")
+     * })
      */
-    private $caminhoFoto;
+    private $foto;
 
     /**
      * @var \PaginaPadrinho
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="PaginaPadrinho")
+     * @ORM\ManyToOne(targetEntity="PaginaPadrinho", inversedBy="padrinho")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="pagina_padrinho_id", referencedColumnName="id")
      * })
@@ -62,8 +67,8 @@ class Padrinho extends Application\Entity\Base\Entity
         return $this->descricao;
     }
 
-    public function getCaminhoFoto() {
-        return $this->caminhoFoto;
+    public function getFoto() {
+        return $this->foto;
     }
 
     public function getPaginaPadrinho() {
@@ -78,15 +83,13 @@ class Padrinho extends Application\Entity\Base\Entity
         $this->descricao = $descricao;
     }
 
-    public function setCaminhoFoto($caminhoFoto) {
-        $this->caminhoFoto = $caminhoFoto;
+    public function setFoto(\Foto $foto) {
+        $this->foto = $foto;
     }
 
     public function setPaginaPadrinho(\PaginaPadrinho $paginaPadrinho) {
         $this->paginaPadrinho = $paginaPadrinho;
     }
-
-
 
 
 }

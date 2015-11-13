@@ -3,6 +3,7 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Base\Entity as EntityPessoa;
 
 /**
  * Pessoa
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="pessoa")
  * @ORM\Entity
  */
-class Pessoa extends Application\Entity\Base\Entity
+class Pessoa extends EntityPessoa 
 {
 
 //    /**

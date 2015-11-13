@@ -3,8 +3,43 @@
     <li class="active">Lista de Convidados</li>
 </ol>
 
-<br><br>
-<a href="<?=$this->url('dashboard/default', array('controller' => 'lista-de-convidados', 'action' => 'adicionar-convidado'))?>" ><div class="btn btn-primary btnDireita" >adicionar um convidado</div></a>
+<table>
+    <td>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span class="badge"><?php echo $this->qtde_adultos ?></span>
+                Adultos:&nbsp;&nbsp;
+            </li>
+        </ul>
+    </td>
+    <td>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span class="badge"><?php echo $this->qtde_criancas ?></span>
+                Crianças:&nbsp;&nbsp;
+            </li>
+        </ul>
+    </td>
+    <td>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span class="badge"><?php echo $this->qtde_total ?></span>
+                Total:&nbsp;&nbsp;
+            </li>
+        </ul>
+    </td>
+    <td>
+        
+    </td>
+</table>
+
+    <a href="<?=$this->url('dashboard/default', array('controller' => 'lista-de-convidados', 'action' => 'adicionar-convidado'))?>" >
+    <div>
+        <span class="glyphicon glyphicon-plus btnDireita gi-2x" title="Adicionar Convidado"></span>        
+    </div>
+</a>
+
+
 <br class="brBoth"><br>
 <table class="table table-hover">
     <tr class="topoTabLista">
@@ -15,45 +50,23 @@
         <td>Crianças</td>
         <td>Ações</td>
     </tr>
+    <?php foreach ($this->lista as $convidado): ?>
     <tr>
         <td><input type="checkbox"></label></td>
-        <td>Ana Cecilia Cardoso</td>
-        <td>anacecila@gmaill.com.br</td>
-        <td>2</td>
-        <td>0</td>
-        <td><span class="glyphicon glyphicon-pencil editarClIco"><span> | <span class="glyphicon glyphicon-envelope enviarClIco"><span> | <span class="glyphicon glyphicon-trash excluirClIco"><span></td>
+        <td><?php echo $convidado->getNome() ?></td>
+        <td><?php echo $convidado->getEmail() ?></td>
+        <td><?php echo $convidado->getQtdeAdultos() ?></td>
+        <td><?php echo $convidado->getQtdeCriancas() ?></td>
+        <td>
+            <span class="glyphicon glyphicon-pencil editarClIco"><span> | 
+            <span class="glyphicon glyphicon-envelope enviarClIco"><span> | 
+            <a href="<?=$this->url('route1', array('action' => 'deletar-convidado', 'id' => $convidado->getId()))?>"><span class="glyphicon glyphicon-trash excluirClIco"></a> <span>
+        </td>
     </tr>
-    <tr>
-        <td><input type="checkbox"></label></td>
-        <td>Wagner Diniz Moura</td>
-        <td>wgane@gmaill.com.br</td>
-        <td>2</td>
-        <td>2</td>
-        <td><span class="glyphicon glyphicon-pencil editarClIco"><span> | <span class="glyphicon glyphicon-envelope enviarClIco"><span> | <span class="glyphicon glyphicon-trash excluirClIco"><span></td>
-    </tr>
-    <tr>
-        <td><input type="checkbox"></label></td>
-        <td>Luiza Guimarães Rosa</td>
-        <td>luizaguimaraes@gmaill.com.br</td>
-        <td>1</td>
-        <td>0</td>
-        <td><span class="glyphicon glyphicon-pencil editarClIco"><span> | <span class="glyphicon glyphicon-envelope enviarClIco"><span> | <span class="glyphicon glyphicon-trash excluirClIco"><span></td>
-    </tr>
-    <tr>
-        <td><input type="checkbox"></label></td>
-        <td>Rafael Couto Pereira</td>
-        <td>rafaelcouto@gmaill.com.br</td>
-        <td>2</td>
-        <td>1</td>
-        <td><span class="glyphicon glyphicon-pencil editarClIco"><span> | <span class="glyphicon glyphicon-envelope enviarClIco"><span> | <span class="glyphicon glyphicon-trash excluirClIco"><span></td>
-    </tr>
-    <tr>
-        <td><input type="checkbox"></label></td>
-        <td>Lucas Boist da Silva</td>
-        <td>lucas-boist@gmaill.com.br</td>
-        <td>2</td>
-        <td>2</td>
-        <td><span class="glyphicon glyphicon-pencil editarClIco"><span> | <span class="glyphicon glyphicon-envelope enviarClIco"><span> | <span class="glyphicon glyphicon-trash excluirClIco"><span></td>
-    </tr>
+    <?php endforeach; ?>
 </table>
-<a href="<?=$this->url('dashboard/default', array('controller' => 'lista-de-convidados', 'action' => 'adicionar-convidado'))?>"><div class="btn btn-primary btnDireita" >adicionar um convidado</div></a>
+<a href="<?=$this->url('dashboard/default', array('controller' => 'lista-de-convidados', 'action' => 'adicionar-convidado'))?>" >
+    <div>
+        <span class="glyphicon glyphicon-plus btnDireita gi-2x" title="Adicionar Convidado"></span>        
+    </div>
+</a>

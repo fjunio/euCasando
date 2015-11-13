@@ -1,7 +1,10 @@
 <?php
 
 namespace Application\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Base\Entity as EntityDadosBancario;
+
 
 /**
  * DadosBancario
@@ -9,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="dados_bancario", indexes={@ORM\Index(name="fk_Dado_Bancario_Pessoa1_idx", columns={"Pessoa_id"})})
  * @ORM\Entity
  */
-class DadosBancario extends Application\Entity\Base\Entity
+class DadosBancario extends EntityDadosBancario
 {
 //    /**
 //     * @var integer

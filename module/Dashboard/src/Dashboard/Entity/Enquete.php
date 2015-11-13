@@ -54,6 +54,18 @@ class Enquete extends Application\Entity\Base\Entity
      */
     private $casamento;
     
+    /*
+     * @var \RespostaEnquente
+     * 
+     * @ORM\Id
+     * @ORM\OneToMany(targetEntity="RespostaEnquente", mappedBy="Enquete")
+     */
+    private $respostaEnquente;
+    
+    public function __construct() {
+        $this->respostaEnquente = new \Doctrine\Common\Collections\ArrayCollection();
+    }      
+    
     public function getTitulo() {
         return $this->titulo;
     }

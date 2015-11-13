@@ -4,14 +4,17 @@ namespace Dashboard\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Application\Entity\Base\Entity;
+
 /**
  * ListaConvidados
  *
- * @ORM\Table(name="lista_convidados", indexes={@ORM\Index(name="fk_Lista_Convidados_Cliente1", columns={"idCliente"})})
+ * @ORM\Table(name="convidado", indexes={@ORM\Index(name="fk_Lista_Convidados_Cliente1", columns={"idCliente"})})
  * @ORM\Entity
  */
-class ListaConvidados extends Application\Entity\Base\Entity
+class Convidado extends Entity
 {
+    
 //    /**
 //     * @var integer
 //     *
@@ -21,12 +24,6 @@ class ListaConvidados extends Application\Entity\Base\Entity
 //     */
 //    private $id;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="idConvidado", type="integer", nullable=false)
-     */
-    private $idconvidado;
 
     /**
      * @var string
@@ -65,20 +62,13 @@ class ListaConvidados extends Application\Entity\Base\Entity
 
     /**
      * @var \Casamento
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Casamento")
+     * @ORM\ManyToOne(targetEntity="Casamento")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idCliente", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="casamento_id", referencedColumnName="id")
      * })
      */
-    private $idcliente;
+    private $casamento;
     
-    public function getIdconvidado() {
-        return $this->idconvidado;
-    }
-
     public function getNome() {
         return $this->nome;
     }
@@ -99,12 +89,8 @@ class ListaConvidados extends Application\Entity\Base\Entity
         return $this->saveDateEnviado;
     }
 
-    public function getIdcliente() {
-        return $this->idcliente;
-    }
-
-    public function setIdconvidado($idconvidado) {
-        $this->idconvidado = $idconvidado;
+    public function getCasamento() {
+        return $this->casamento;
     }
 
     public function setNome($nome) {
@@ -127,11 +113,9 @@ class ListaConvidados extends Application\Entity\Base\Entity
         $this->saveDateEnviado = $saveDateEnviado;
     }
 
-    public function setIdcliente(\Casamento $idcliente) {
-        $this->idcliente = $idcliente;
+    public function setCasamento(Casamento $casamento) {
+        $this->casamento = $casamento;
     }
-
-
 
 
 }

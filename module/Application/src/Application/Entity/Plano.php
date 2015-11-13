@@ -3,6 +3,8 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Base\Entity as EntityPlano;
+use Application\Entity;
 
 /**
  * Plano
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="plano")
  * @ORM\Entity
  */
-class Plano extends Application\Entity\Base\Entity
+class Plano extends  EntityPlano
 {
 //    /**
 //     * @var integer
@@ -45,7 +47,7 @@ class Plano extends Application\Entity\Base\Entity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Casamento", mappedBy="plano")
+     * @ORM\ManyToMany(targetEntity="\Dashboard\Entity\Casamento", mappedBy="plano")
      * @ORM\JoinTable(name="casamento_plano",
      *   joinColumns={
      *     @ORM\JoinColumn(name="Plano_id", referencedColumnName="id")

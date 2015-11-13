@@ -3,6 +3,7 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Base\Entity as EntityPagina;
 
 /**
  * Pagina
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="pagina", indexes={@ORM\Index(name="fk_Pagina_Site1_idx", columns={"Site_id"})})
  * @ORM\Entity
  */
-class Pagina extends Application\Entity\Base\Entity
+class Pagina extends EntityPagina
 {
 //    /**
 //     * @var integer

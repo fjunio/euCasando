@@ -3,6 +3,7 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Base\Entity;
 
 /**
  * Site
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="site", indexes={@ORM\Index(name="fk_Site_Casamento1_idx", columns={"Casamento_id"}), @ORM\Index(name="fk_Site_Layout1_idx", columns={"Layout_id"})})
  * @ORM\Entity
  */
-class Site extends Application\Entity\Base\Entity
+class Site extends Entity
 {
 //    /**
 //     * @var integer
@@ -47,7 +48,7 @@ class Site extends Application\Entity\Base\Entity
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Casamento")
+     * @ORM\OneToOne(targetEntity="\Dashboard\Entity\Casamento")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Casamento_id", referencedColumnName="id")
      * })

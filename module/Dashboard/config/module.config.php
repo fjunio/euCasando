@@ -52,15 +52,50 @@ return array(
                     ),
                 ),
             ),
+            'route1' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => '/lista-de-convidados/[:action]/[:id][/]',
+                    'defaults' => [
+                        '__NAMESPACE__' => 'Dashboard\Controller',
+                        'controller'    => 'lista-de-convidados'
+                    ]
+                ]
+            ],
+            'route2' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => '/planejador-financeiro/[:action]/[:id][/]',
+                    'defaults' => [
+                        '__NAMESPACE__' => 'Dashboard\Controller',
+                        'controller'    => 'planejador-financeiro'
+                    ]
+                ]
+            ]
         ),
     ),
     'service_manager' => array(
+        'services' => array(
+        ),
+        'initializers' => [
+        ],
+        
+        'invokables' => array(                                    
+        ),
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
         'factories' => array(
             'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
+//            Services
+            'ConvidadoServiceFactory' => 'Dashboard\Service\Factory\ConvidadoServiceFactory',
+            'CasamentoServiceFactory' => 'Dashboard\Service\Factory\CasamentoServiceFactory',
+            'PlanejadorFinanceiroServiceFactory' => 'Dashboard\Service\Factory\PlanejadorFinanceiroServiceFactory',
+//            DAOs
+            'ConvidadoDAOFactory' => 'Dashboard\DAO\Factory\ConvidadoDAOFactory',
+            'CasamentoDAOFactory' => 'Dashboard\DAO\Factory\CasamentoDAOFactory',
+            'PlanejadorFinanceiroDAOFactory' => 'Dashboard\DAO\Factory\PlanejadorFinanceiroDAOFactory',
         ),
     ),
     'translator' => array(
@@ -123,16 +158,16 @@ return array(
     // Doctrine config
     'doctrine' => array(
         'driver' => array(
-            __NAMESPACE__ . '_driver' => array(
+            'dashboard_entities' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
-                'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity')
-            ),            
-        ),
-        'orm_default' => array(
-            'drivers' => array(
-                 __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-            )
+                'paths' => array(__DIR__ . '/../src/Dashboard/Entity')
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    'Dashboard\Entity' => 'dashboard_entities',
+                ),
+            ),
         )
     ),
 );

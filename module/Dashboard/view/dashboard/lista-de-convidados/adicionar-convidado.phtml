@@ -14,6 +14,9 @@
     echo $this->form()->openTag($form);
     ?>
 
+<div style="display: none">
+    <?= $this->formRow($form->get('id')); ?>
+</div>
 <label for="nome">Nome do convidado</label>
 <div class="form-group">
     <?= $this->formRow($form->get('nome')); ?>
@@ -24,11 +27,11 @@
 </div>
 <label for="adultos">Qtd. Adultos</label>
 <div class="form-group">
-    <?= $this->formRow($form->get('adultos')); ?>
+    <?= $this->formRow($form->get('qtdeAdultos')); ?>
 </div>
 <label for="criancas">Qtd. Crianças</label>
 <div class="form-group">
-    <?= $this->formRow($form->get('criancas')); ?>
+    <?= $this->formRow($form->get('qtdeCriancas')); ?>
 </div>
 
 <?

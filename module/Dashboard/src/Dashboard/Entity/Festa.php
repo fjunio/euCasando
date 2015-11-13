@@ -3,6 +3,8 @@
 namespace Dashboard\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity;
+use Application\Entity\Base\Entity as EntityFesta;
 
 /**
  * Festa
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="festa", indexes={@ORM\Index(name="fk_table1_Cliente40", columns={"casamento_id"})})
  * @ORM\Entity
  */
-class Festa extends Application\Entity\Base\Entity
+class Festa extends EntityFesta
 {
 //    /**
 //     * @var integer
@@ -73,15 +75,15 @@ class Festa extends Application\Entity\Base\Entity
     /**
      * @var \Casamento
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * 
      * @ORM\OneToOne(targetEntity="Casamento")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="casamento_id", referencedColumnName="id")
      * })
      */
     private $casamento;
-    
+        
+        
     public function getNomeLocal() {
         return $this->nomeLocal;
     }

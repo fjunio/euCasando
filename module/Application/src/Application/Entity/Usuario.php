@@ -3,6 +3,7 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Base\Entity as EntityUsuario;
 
 /**
  * Usuario
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="usuario", indexes={@ORM\Index(name="id_idx", columns={"pessoa_id"})})
  * @ORM\Entity
  */
-class Usuario extends Application\Entity\Base\Entity
+class Usuario extends EntityUsuario
 {
 //    /**
 //     * @var integer
@@ -38,7 +39,7 @@ class Usuario extends Application\Entity\Base\Entity
     /**
      * @var \Pessoa
      *
-     * @ORM\Id
+     * 
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Pessoa")
      * @ORM\JoinColumns({
@@ -50,7 +51,7 @@ class Usuario extends Application\Entity\Base\Entity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Casamento", inversedBy="usuario")
+     * @ORM\ManyToMany(targetEntity="\Dashboard\Entity\Casamento", inversedBy="usuario")
      * @ORM\JoinTable(name="usuario_casamento",
      *   joinColumns={
      *     @ORM\JoinColumn(name="Usuario_id", referencedColumnName="id")

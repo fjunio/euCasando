@@ -54,7 +54,7 @@ class Mensagem extends Application\Entity\Base\Entity
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="ConfigMensagem")
+     * @ORM\ManyToOne(targetEntity="ConfigMensagem", inversedBy="mensagem")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="config_mensagem_id", referencedColumnName="id")
      * })

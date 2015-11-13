@@ -3,6 +3,7 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Base\Entity as EntityServico;
 
 /**
  * Servico
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="servico")
  * @ORM\Entity
  */
-class Servico extends Application\Entity\Base\Entity
+class Servico extends EntityServico
 {
 //    /**
 //     * @var integer
@@ -38,7 +39,7 @@ class Servico extends Application\Entity\Base\Entity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Casamento", mappedBy="servico")
+     * @ORM\ManyToMany(targetEntity="\Dashboard\Entity\Casamento", mappedBy="servico")
      * @ORM\JoinTable(name="casamento_servico",
      *   joinColumns={
      *     @ORM\JoinColumn(name="Servico_id", referencedColumnName="id")

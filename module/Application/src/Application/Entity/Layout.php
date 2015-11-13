@@ -3,6 +3,7 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Base\Entity as EntityLayout;
 
 /**
  * Layout
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="layout")
  * @ORM\Entity
  */
-class Layout extends Application\Entity\Base\Entity
+class Layout extends EntityLayout
 {
 //    /**
 //     * @var integer

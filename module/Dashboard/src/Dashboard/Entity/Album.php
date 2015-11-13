@@ -3,6 +3,8 @@
 namespace Dashboard\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Base\Entity;
+
 
 /**
  * Album
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="album", indexes={@ORM\Index(name="fk_Album_Pagina_Foto1_idx", columns={"Pagina_Fotos_id"})})
  * @ORM\Entity
  */
-class Album extends Application\Entity\Base\Entity
+class Album extends Entity
 {
 //    /**
 //     * @var integer
@@ -40,13 +42,42 @@ class Album extends Application\Entity\Base\Entity
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="PaginaFotos")
+     * @ORM\ManyToOne(targetEntity="PaginaFotos", inversedBy="album")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Pagina_Fotos_id", referencedColumnName="id")
      * })
      */
     private $paginaFotos;
     
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Foto", mappedBy="album")
+     * @ORM\JoinTable(name="Album_Foto",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="album_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="foto_id", referencedColumnName="id")
+     *   }
+     * )
+     */    
+    private $foto;
+    
+    
+    public function __construct() {
+        $this->foto = new \Doctrine\Common\Collections\ArrayCollection();
+    }    
+    
+    public function getFoto() {
+        return $this->foto;
+    }
+
+    public function setFoto(\Doctrine\Common\Collections\Collection $foto) {
+        $this->foto = $foto;
+    }
+
+        
     public function getCaminhoFotoCapa() {
         return $this->caminhoFotoCapa;
     }

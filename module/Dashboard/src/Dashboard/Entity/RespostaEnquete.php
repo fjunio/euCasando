@@ -47,7 +47,7 @@ class RespostaEnquete extends Application\Entity\Base\Entity
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Enquete")
+     * @ORM\ManyToOne(targetEntity="Enquete", inversedBy="respostaEnquete")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Enquete_id", referencedColumnName="id")
      * })

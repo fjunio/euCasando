@@ -3,21 +3,21 @@
 namespace Dashboard\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Application\Entity\Base\Entity as EntityCasamento;
 /**
  * Casamento
  *
  * @ORM\Table(name="casamento")
  * @ORM\Entity
  */
-class Casamento extends Application\Entity\Base\Entity
+class Casamento extends EntityCasamento
 {
 //    /**
 //     * @var integer
 //     *
 //     * @ORM\Column(name="id", type="integer", nullable=false)
 //     * @ORM\Id
-//     * @ORM\GeneratedValue(strategy="IDENTITY")
+//     * @ORM\GeneratedValue("Auto")
 //     */
 //    private $id;
 
@@ -52,7 +52,7 @@ class Casamento extends Application\Entity\Base\Entity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Plano", inversedBy="casamento")
+     * @ORM\ManyToMany(targetEntity="\Application\Entity\Plano", inversedBy="casamento")
      * @ORM\JoinTable(name="casamento_plano",
      *   joinColumns={
      *     @ORM\JoinColumn(name="Casamento_id", referencedColumnName="id")
@@ -67,7 +67,7 @@ class Casamento extends Application\Entity\Base\Entity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Servico", inversedBy="casamento")
+     * @ORM\ManyToMany(targetEntity="\Application\Entity\Servico", inversedBy="casamento")
      * @ORM\JoinTable(name="casamento_servico",
      *   joinColumns={
      *     @ORM\JoinColumn(name="Casamento_id", referencedColumnName="id")
@@ -82,7 +82,7 @@ class Casamento extends Application\Entity\Base\Entity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Usuario", mappedBy="casamento")
+     * @ORM\ManyToMany(targetEntity="\Application\Entity\Usuario", mappedBy="casamento")
      * @ORM\JoinTable(name="usuario_casamento",
      *   joinColumns={
      *     @ORM\JoinColumn(name="Casamento_id", referencedColumnName="id")

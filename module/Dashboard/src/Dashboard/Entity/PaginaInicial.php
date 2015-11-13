@@ -28,47 +28,17 @@ class PaginaInicial extends Application\Entity\Base\Entity
      */
     private $texto;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="caminho_foto1", type="string", length=45, nullable=true)
-     */
-    private $caminhoFoto1;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="caminho_foto2", type="string", length=45, nullable=true)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Video")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="video_id", referencedColumnName="id")
+     * })
      */
-    private $caminhoFoto2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="caminho_foto3", type="string", length=45, nullable=true)
-     */
-    private $caminhoFoto3;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="caminho_foto4", type="string", length=45, nullable=true)
-     */
-    private $caminhoFoto4;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="caminho_foto5", type="string", length=45, nullable=true)
-     */
-    private $caminhoFoto5;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="caminho_video", type="string", length=45, nullable=true)
-     */
-    private $caminhoVideo;
+    private $video;
 
     /**
      * @var \Casamento
@@ -82,72 +52,61 @@ class PaginaInicial extends Application\Entity\Base\Entity
      */
     private $casamento;
     
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Foto", mappedBy="paginaInicial")
+     * @ORM\JoinTable(name="Pagina_Inicial_Foto",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="pagina_inicial_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="foto_id", referencedColumnName="id")
+     *   }
+     * )
+     */    
+    private $foto;
+    
+    
+    public function __construct() {
+        $this->foto = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     public function getTexto() {
         return $this->texto;
     }
 
-    public function getCaminhoFoto1() {
-        return $this->caminhoFoto1;
-    }
-
-    public function getCaminhoFoto2() {
-        return $this->caminhoFoto2;
-    }
-
-    public function getCaminhoFoto3() {
-        return $this->caminhoFoto3;
-    }
-
-    public function getCaminhoFoto4() {
-        return $this->caminhoFoto4;
-    }
-
-    public function getCaminhoFoto5() {
-        return $this->caminhoFoto5;
-    }
-
-    public function getCaminhoVideo() {
-        return $this->caminhoVideo;
+    public function getVideo() {
+        return $this->video;
     }
 
     public function getCasamento() {
         return $this->casamento;
     }
 
+    public function getFoto() {
+        return $this->foto;
+    }
+
     public function setTexto($texto) {
         $this->texto = $texto;
     }
 
-    public function setCaminhoFoto1($caminhoFoto1) {
-        $this->caminhoFoto1 = $caminhoFoto1;
-    }
-
-    public function setCaminhoFoto2($caminhoFoto2) {
-        $this->caminhoFoto2 = $caminhoFoto2;
-    }
-
-    public function setCaminhoFoto3($caminhoFoto3) {
-        $this->caminhoFoto3 = $caminhoFoto3;
-    }
-
-    public function setCaminhoFoto4($caminhoFoto4) {
-        $this->caminhoFoto4 = $caminhoFoto4;
-    }
-
-    public function setCaminhoFoto5($caminhoFoto5) {
-        $this->caminhoFoto5 = $caminhoFoto5;
-    }
-
-    public function setCaminhoVideo($caminhoVideo) {
-        $this->caminhoVideo = $caminhoVideo;
+    public function setVideo($video) {
+        $this->video = $video;
     }
 
     public function setCasamento(\Casamento $casamento) {
         $this->casamento = $casamento;
     }
 
+    public function setFoto(\Doctrine\Common\Collections\Collection $foto) {
+        $this->foto = $foto;
+    }
 
 
-
+    
+    
 }
 

@@ -3,6 +3,7 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Base\Entity;
 
 /**
  * ParametrosSistema
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="parametro_sistema")
  * @ORM\Entity
  */
-class ParametroSistema extends Application\Entity\Base\Entity
+class ParametroSistema extends Entity
 {
 //    /**
 //     * @var integer

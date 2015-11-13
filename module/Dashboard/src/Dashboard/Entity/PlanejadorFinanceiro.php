@@ -2,15 +2,16 @@
 
 namespace Dashboard\Entity;
 
+use Application\Entity\Base\Entity as PlanejadorFinanceiroEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CasamentoPlanejadorFinanceiro
  *
- * @ORM\Table(name="casamento_planejador_financeiro", indexes={@ORM\Index(name="fk_table1_Cliente5", columns={"casamento_id"})})
+ * @ORM\Table(name="planejador_financeiro", indexes={@ORM\Index(name="fk_table1_Cliente5", columns={"casamento_id"})})
  * @ORM\Entity
  */
-class CasamentoPlanejadorFinanceiro extends Application\Entity\Base\Entity
+class PlanejadorFinanceiro extends PlanejadorFinanceiroEntity
 {
 //    /**
 //     * @var integer
@@ -56,12 +57,9 @@ class CasamentoPlanejadorFinanceiro extends Application\Entity\Base\Entity
      */
     private $quemPagou;
 
-    /**
+   /**
      * @var \Casamento
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Casamento")
+     * @ORM\ManyToOne(targetEntity="Casamento")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="casamento_id", referencedColumnName="id")
      * })
@@ -112,7 +110,7 @@ class CasamentoPlanejadorFinanceiro extends Application\Entity\Base\Entity
         $this->quemPagou = $quemPagou;
     }
 
-    public function setCasamento(\Casamento $casamento) {
+    public function setCasamento(Casamento $casamento) {
         $this->casamento = $casamento;
     }
 

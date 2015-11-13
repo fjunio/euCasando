@@ -24,23 +24,9 @@ class PaginaSobreNoivos extends Application\Entity\Base\Entity
     /**
      * @var string
      *
-     * @ORM\Column(name="texto_capa", type="text", length=65535, nullable=true)
+     * @ORM\Column(name="texto", type="text", length=65535, nullable=true)
      */
-    private $textoCapa;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="caminho_imagem", type="string", length=45, nullable=true)
-     */
-    private $caminhoImagem;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="caminho_video", type="string", length=45, nullable=true)
-     */
-    private $caminhoVideo;
+    private $texto;
 
     /**
      * @var \Casamento
@@ -53,39 +39,62 @@ class PaginaSobreNoivos extends Application\Entity\Base\Entity
      * })
      */
     private $casamento;
+
+    /**
+     * @var \Foto
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Foto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="foto_id", referencedColumnName="id")
+     * })
+     */
+    private $foto;
     
-    public function getTextoCapa() {
-        return $this->textoCapa;
-    }
-
-    public function getCaminhoImagem() {
-        return $this->caminhoImagem;
-    }
-
-    public function getCaminhoVideo() {
-        return $this->caminhoVideo;
+    /**
+     * @var \Video
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Video")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="video_id", referencedColumnName="id")
+     * })
+     */
+    private $video;    
+    
+    public function getTexto() {
+        return $this->texto;
     }
 
     public function getCasamento() {
         return $this->casamento;
     }
 
-    public function setTextoCapa($textoCapa) {
-        $this->textoCapa = $textoCapa;
+    public function getFoto() {
+        return $this->foto;
     }
 
-    public function setCaminhoImagem($caminhoImagem) {
-        $this->caminhoImagem = $caminhoImagem;
+    public function getVideo() {
+        return $this->video;
     }
 
-    public function setCaminhoVideo($caminhoVideo) {
-        $this->caminhoVideo = $caminhoVideo;
+    public function setTexto($texto) {
+        $this->texto = $texto;
     }
 
     public function setCasamento(\Casamento $casamento) {
         $this->casamento = $casamento;
     }
 
+    public function setFoto(\Foto $foto) {
+        $this->foto = $foto;
+    }
+
+    public function setVideo(\Video $video) {
+        $this->video = $video;
+    }
 
 
 

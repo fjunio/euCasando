@@ -12,7 +12,24 @@ use Zend\View\Model\ViewModel;
  */
 class PlanejadorFinanceiroController extends AbstractActionController {
     
+    private $planejadorFinanceiroService = null;
+    
     public function indexAction(){
-        return new ViewModel();
+        $listaFinancasVo = $this->getPlanejadorFinanceiroService()->getAllByCasamentoId((int)1);        
+        $view = new ViewModel(array('lista' => $listaFinancasVo));        
+        return $view;
     }
+    
+    public function deletarDespesaAction(){
+        return $this->redirect()
+                    ->toRoute('dashboard/default', array('controller' => 'planejador-financeiro'));
+    }
+
+
+    private function getPlanejadorFinanceiroService(){
+        if($this->planejadorFinanceiroService === null){
+            $this->planejadorFinanceiroService = $this->getServiceLocator()->get("PlanejadorFinanceiroServiceFactory");
+        }
+        return $this->planejadorFinanceiroService;
+    } 
 }

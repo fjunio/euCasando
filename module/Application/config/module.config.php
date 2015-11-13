@@ -58,10 +58,11 @@ return array(
     'service_manager' => array(
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
-            'Zend\Log\LoggerAbstractServiceFactory',
+            'Zend\Log\LoggerAbstractServiceFactory',            
         ),
         'factories' => array(
             'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
+            'Application\DAO\DAOBase\DAO' => 'Application\DAO\DAOBase\DAOFactory',
         ),
     ),
     'translator' => array(
@@ -122,18 +123,19 @@ return array(
     // Doctrine config
     'doctrine' => array(
         'driver' => array(
-            __NAMESPACE__ . '_driver' => array(
+            'application_entities' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
-                'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity')
+                'paths' => array(__DIR__ . '/../src/Application/Entity')
             ),
-        ),
-        'orm_default' => array(
-            'drivers' => array(
-                __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-            )
+            'orm_default' => array(
+                'drivers' => array(
+                    'Application\Entity' => 'application_entities',
+                ),
+            ),
         )
-    ),
+    ),    
+    
     'factories' => array(
         'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
     ),

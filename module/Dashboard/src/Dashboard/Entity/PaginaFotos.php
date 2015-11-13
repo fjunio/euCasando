@@ -40,6 +40,27 @@ class PaginaFotos extends Application\Entity\Base\Entity
      */
     private $casamento;
     
+    /*
+     * @var \Album
+     * 
+     * @ORM\Id
+     * @ORM\OneToMany(targetEntity="Album", mappedBy="paginaFotos")
+     */
+    private $album;
+    
+    public function __construct() {
+        $this->album = new \Doctrine\Common\Collections\ArrayCollection();
+    } 
+    
+    public function getAlbum() {
+        return $this->album;
+    }
+
+    public function setAlbum($album) {
+        $this->album = $album;
+    }
+
+        
     public function getTexto() {
         return $this->texto;
     }

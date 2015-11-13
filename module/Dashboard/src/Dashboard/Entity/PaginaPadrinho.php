@@ -29,13 +29,6 @@ class PaginaPadrinho extends Application\Entity\Base\Entity
     private $texto;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="publicar_pagina", type="boolean", nullable=false)
-     */
-    private $publicarPagina;
-
-    /**
      * @var \Casamento
      *
      * @ORM\Id
@@ -46,6 +39,18 @@ class PaginaPadrinho extends Application\Entity\Base\Entity
      * })
      */
     private $casamento;
+    
+    /*
+     * @var \Padrinho
+     * 
+     * @ORM\Id
+     * @ORM\OneToMany(targetEntity="Padrinho", mappedBy="paginaPadrinho")
+     */
+    private $padrinho;
+    
+    public function __construct() {
+        $this->padrinho = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     
     public function getTexto() {
         return $this->texto;
@@ -70,6 +75,16 @@ class PaginaPadrinho extends Application\Entity\Base\Entity
     public function setCasamento(\Casamento $casamento) {
         $this->casamento = $casamento;
     }
+    
+    public function getPadrinho() {
+        return $this->padrinho;
+    }
+
+    public function setPadrinho($padrinho) {
+        $this->padrinho = $padrinho;
+    }
+
+
 
 
 

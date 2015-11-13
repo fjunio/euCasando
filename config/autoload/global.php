@@ -29,6 +29,7 @@ return array(
                     'port' => '3306',
                     'user' => 'root',
                     'dbname' => 'eucasando',
+                    'password' => '',
                     'charset' => 'UTF8',
                     'driverOptions' => array(
                         'charset' => 'UTF8'
@@ -42,13 +43,13 @@ return array(
                 'configuration' => 'orm_default'
             )
         ),
-        'configuration' => array(
-            'orm_default' => array(
-                'query_cache' => 'apc',
-                'result_cache' => 'apc',
-                'metadata_cache' => 'apc'
-            )
-        )
+//        'configuration' => array(
+//            'orm_default' => array(
+//                'query_cache' => 'apc',
+//                'result_cache' => 'apc',
+//                'metadata_cache' => 'apc'
+//            )
+//        )
     ),
     'view_manager' => array(
         'template_map' => array(

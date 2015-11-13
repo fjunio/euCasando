@@ -40,7 +40,35 @@ class PaginaDamaPajen extends Application\Entity\Base\Entity
      */
     private $casamento;
     
-    public function getTexto() {
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Foto", mappedBy="paginaDamaPajen")
+     * @ORM\JoinTable(name="Pagina_Dama_Pajen_Foto",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="Pagina_Dama_Pajen__id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="foto_id", referencedColumnName="id")
+     *   }
+     * )
+     */    
+    private $foto;
+    
+    
+    public function __construct() {
+        $this->foto = new \Doctrine\Common\Collections\ArrayCollection();
+    }    
+    
+    public function getFoto() {
+        return $this->foto;
+    }
+
+    public function setFoto(\Doctrine\Common\Collections\Collection $foto) {
+        $this->foto = $foto;
+    }
+
+        public function getTexto() {
         return $this->texto;
     }
 

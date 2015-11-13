@@ -14,10 +14,10 @@
 namespace Dashboard\Forms;
 
 //use Zend\Captcha\AdapterInterface as CaptchaAdapter;
+
+use Dashboard\VO\ConvidadoVO;
 use Zend\Form\Element;
 use Zend\Form\Form;
-use Zend\Form\Fieldset;
-use Dashboard\Entity\ListaDeConvidadosFil;
 use Zend\Stdlib\Hydrator\ClassMethods;
 
 class FormAddConvidado extends Form {
@@ -33,9 +33,15 @@ class FormAddConvidado extends Form {
         //parent::setAttribute("action", "add");
         
         $this->setHydrator(new ClassMethods())
-             ->setObject(new ListaDeConvidadosFil());
+//             ->setObject(new ListaDeConvidadosFil());
+                ->setObject(new ConvidadoVO());
         
         //Criando campos
+        $this->add(array(
+            'type' => 'Zend\Form\Element\Text',
+            'name' => 'id',
+        ));
+        
         $this->add(array(
             'type' => 'Zend\Form\Element\Text',
             'name' => 'nome',
@@ -58,7 +64,7 @@ class FormAddConvidado extends Form {
         
         $this->add(array(
              'type' => 'select',
-             'name' => 'adultos',
+             'name' => 'qtdeAdultos',
              'options' => array(
                  'empty_option' => 'Escolha a quantidade de adultos',
                      'value_options' => array(
@@ -82,7 +88,7 @@ class FormAddConvidado extends Form {
         
         $this->add(array(
              'type' => 'select',
-             'name' => 'criancas',
+             'name' => 'qtdeCriancas',
              'options' => array(
                  'empty_option' => 'Escolha a quantidade de criaças',
                      'value_options' => array(

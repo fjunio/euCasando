@@ -47,6 +47,27 @@ class ConfigMensagem
      */
     private $casamento;
     
+    /*
+     * @var \Mensagem
+     * 
+     * @ORM\Id
+     * @ORM\OneToMany(targetEntity="Mensagem", mappedBy="configMensagem")
+     */
+    private $mensagem;
+    
+    public function __construct() {
+        $this->mensagem = new \Doctrine\Common\Collections\ArrayCollection();
+    }    
+    
+    public function getMensagem() {
+        return $this->mensagem;
+    }
+
+    public function setMensagem($mensagem) {
+        $this->mensagem = $mensagem;
+    }
+
+        
     public function getEnviarEmail() {
         return $this->enviarEmail;
     }
