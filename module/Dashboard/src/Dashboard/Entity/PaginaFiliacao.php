@@ -2,6 +2,9 @@
 
 namespace Dashboard\Entity;
 
+use Application\Entity\Base\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="pagina_filiacao")
  * @ORM\Entity
  */
-class PaginaFiliacao extends Application\Entity\Base\Entity
+class PaginaFiliacao extends Entity
 {
 //    /**
 //     * @var integer
@@ -56,7 +59,7 @@ class PaginaFiliacao extends Application\Entity\Base\Entity
     
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
      * @ORM\ManyToMany(targetEntity="Foto", mappedBy="PaginaFiliacao")
      * @ORM\JoinTable(name="Pagina_Filiacao_Foto",
@@ -72,7 +75,7 @@ class PaginaFiliacao extends Application\Entity\Base\Entity
     
     
     public function __construct() {
-        $this->foto = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->foto = new ArrayCollection();
     }
     
     public function getTexto() {
@@ -95,15 +98,15 @@ class PaginaFiliacao extends Application\Entity\Base\Entity
         $this->texto = $texto;
     }
 
-    public function setCasamento(\Casamento $casamento) {
+    public function setCasamento(Casamento $casamento) {
         $this->casamento = $casamento;
     }
 
-    public function setVideo(\Video $video) {
+    public function setVideo(Video $video) {
         $this->video = $video;
     }
 
-    public function setFoto(\Doctrine\Common\Collections\Collection $foto) {
+    public function setFoto(Collection $foto) {
         $this->foto = $foto;
     }
 

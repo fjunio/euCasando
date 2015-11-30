@@ -13,6 +13,6 @@ interface ConvidadoService {
     public function update(ConvidadoVO $convidadoVo);
     public function delete(ConvidadoVO $convidadoVo);
     public function getAllByCasamentoId($idCasamento);
+    public function getById($idConvidado);
     public function getResumoConvidados($listaConvidadoVo);
-    public function getCasamentoById($idCasamento);
 }

@@ -92,10 +92,20 @@ return array(
             'ConvidadoServiceFactory' => 'Dashboard\Service\Factory\ConvidadoServiceFactory',
             'CasamentoServiceFactory' => 'Dashboard\Service\Factory\CasamentoServiceFactory',
             'PlanejadorFinanceiroServiceFactory' => 'Dashboard\Service\Factory\PlanejadorFinanceiroServiceFactory',
+            'MensagemServiceFactory' => 'Dashboard\Service\Factory\MensagemServiceFactory',
+            'PaginaInicialSiteServiceFactory' => 'Dashboard\Service\Factory\PaginaInicialSiteServiceFactory',
+            'PaginaSobreNoivosServiceFactory' => 'Dashboard\Service\Factory\PaginaSobreNoivosServiceFactory',
+            'PaginaFiliacaoServiceFactory' => 'Dashboard\Service\Factory\PaginaFiliacaoServiceFactory',
+            'PadrinhoServiceFactory' => 'Dashboard\Service\Factory\PadrinhoServiceFactory',
 //            DAOs
             'ConvidadoDAOFactory' => 'Dashboard\DAO\Factory\ConvidadoDAOFactory',
             'CasamentoDAOFactory' => 'Dashboard\DAO\Factory\CasamentoDAOFactory',
             'PlanejadorFinanceiroDAOFactory' => 'Dashboard\DAO\Factory\PlanejadorFinanceiroDAOFactory',
+            'MensagemDAOFactory' => 'Dashboard\DAO\Factory\MensagemDAOFactory',
+            'PaginaInicialSiteDAOFactory' => 'Dashboard\DAO\Factory\PaginaInicialSiteDAOFactory',
+            'PaginaSobreNoivosDAOFactory' => 'Dashboard\DAO\Factory\PaginaSobreNoivosDAOFactory',
+            'PaginaFiliacaoDAOFactory' => 'Dashboard\DAO\Factory\PaginaFiliacaoDAOFactory',
+            'PadrinhoDAOFactory' => 'Dashboard\DAO\Factory\PadrinhoDAOFactory',
         ),
     ),
     'translator' => array(
@@ -115,7 +125,8 @@ return array(
             'Dashboard\Controller\ListaDeConvidados' => 'Dashboard\Controller\ListaDeConvidadosController',
             'Dashboard\Controller\ProtecaoSenha' => 'Dashboard\Controller\ProtecaoSenhaController',
             'Dashboard\Controller\MensagensRecebidas' => 'Dashboard\Controller\MensagensRecebidasController',
-            'Dashboard\Controller\PlanejadorFinanceiro' => 'Dashboard\Controller\PlanejadorFinanceiroController'
+            'Dashboard\Controller\PlanejadorFinanceiro' => 'Dashboard\Controller\PlanejadorFinanceiroController',
+            'Dashboard\Controller\PaginaInicialSite' => 'Dashboard\Controller\PaginaInicialSiteController'
         ),
     ),
      'controller_plugins' => array(

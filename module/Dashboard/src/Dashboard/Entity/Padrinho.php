@@ -2,15 +2,16 @@
 
 namespace Dashboard\Entity;
 
+use Application\Entity\Base\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Padrinho
  *
- * @ORM\Table(name="padrinho", indexes={@ORM\Index(name="fk_Padrinho_Pagina_Padrinho1_idx", columns={"pagina_padrinho_id"})})
+ * @ORM\Table(name="padrinho")
  * @ORM\Entity
  */
-class Padrinho extends Application\Entity\Base\Entity
+class Padrinho extends Entity
 {
 //    /**
 //     * @var integer
@@ -83,11 +84,11 @@ class Padrinho extends Application\Entity\Base\Entity
         $this->descricao = $descricao;
     }
 
-    public function setFoto(\Foto $foto) {
+    public function setFoto(Foto $foto) {
         $this->foto = $foto;
     }
 
-    public function setPaginaPadrinho(\PaginaPadrinho $paginaPadrinho) {
+    public function setPaginaPadrinho(PaginaPadrinho $paginaPadrinho) {
         $this->paginaPadrinho = $paginaPadrinho;
     }
 

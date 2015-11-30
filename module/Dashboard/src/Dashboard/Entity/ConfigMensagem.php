@@ -2,15 +2,17 @@
 
 namespace Dashboard\Entity;
 
+use Application\Entity\Base\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * ConfigMensagem
  *
- * @ORM\Table(name="config_mensagem", indexes={@ORM\Index(name="fk_table1_Cliente2", columns={"casamento_id"})})
+ * @ORM\Table(name="config_mensagem")
  * @ORM\Entity
  */
-class ConfigMensagem
+class ConfigMensagem  extends Entity
 {
 //    /**
 //     * @var integer
@@ -37,9 +39,6 @@ class ConfigMensagem
 
     /**
      * @var \Casamento
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Casamento")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="casamento_id", referencedColumnName="id")
@@ -47,27 +46,32 @@ class ConfigMensagem
      */
     private $casamento;
     
-    /*
+    /**
      * @var \Mensagem
-     * 
-     * @ORM\Id
-     * @ORM\OneToMany(targetEntity="Mensagem", mappedBy="configMensagem")
+     * @ORM\OneToMany(targetEntity="Mensagem", mappedBy="configMensagem", cascade={"all"})
      */
-    private $mensagem;
+    private $mensagens;
     
     public function __construct() {
-        $this->mensagem = new \Doctrine\Common\Collections\ArrayCollection();
+        parent::__construct();
+        $this->mensagens = new ArrayCollection();
+        
     }    
     
-    public function getMensagem() {
-        return $this->mensagem;
+    public function getMensagens() {
+        return $this->mensagens;
     }
 
-    public function setMensagem($mensagem) {
-        $this->mensagem = $mensagem;
+    public function addMensagem(Mensagem $mensagem){
+        $this->mensagens->add($mensagem);
+        return $this;
+    }        
+    
+    public function removeMensagem(Mensagem $mensagem){
+        $this->mensagens->remove($mensagem);
+        return $this;
     }
 
-        
     public function getEnviarEmail() {
         return $this->enviarEmail;
     }
@@ -88,12 +92,9 @@ class ConfigMensagem
         $this->necessitaAprovacao = $necessitaAprovacao;
     }
 
-    public function setCasamento(\Casamento $casamento) {
+    public function setCasamento(Casamento $casamento) {
         $this->casamento = $casamento;
     }
-
-
-
 
 }
 

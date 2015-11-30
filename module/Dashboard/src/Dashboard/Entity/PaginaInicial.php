@@ -2,15 +2,18 @@
 
 namespace Dashboard\Entity;
 
+use Application\Entity\Base\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * PaginaInicial
  *
- * @ORM\Table(name="pagina_inicial", indexes={@ORM\Index(name="fk_Pagina_inicial_Cliente1", columns={"casamento_id"})})
+ * @ORM\Table(name="pagina_inicial")
  * @ORM\Entity
  */
-class PaginaInicial extends Application\Entity\Base\Entity
+class PaginaInicial extends Entity
 {
 //    /**
 //     * @var integer
@@ -30,9 +33,7 @@ class PaginaInicial extends Application\Entity\Base\Entity
 
 
     /**
-     * @var string
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @var Video
      * @ORM\OneToOne(targetEntity="Video")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="video_id", referencedColumnName="id")
@@ -42,9 +43,6 @@ class PaginaInicial extends Application\Entity\Base\Entity
 
     /**
      * @var \Casamento
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Casamento")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="casamento_id", referencedColumnName="id")
@@ -54,7 +52,7 @@ class PaginaInicial extends Application\Entity\Base\Entity
     
     
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
      * @ORM\ManyToMany(targetEntity="Foto", mappedBy="paginaInicial")
      * @ORM\JoinTable(name="Pagina_Inicial_Foto",
@@ -70,7 +68,7 @@ class PaginaInicial extends Application\Entity\Base\Entity
     
     
     public function __construct() {
-        $this->foto = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->foto = new ArrayCollection();
     }
     
     public function getTexto() {
@@ -97,11 +95,11 @@ class PaginaInicial extends Application\Entity\Base\Entity
         $this->video = $video;
     }
 
-    public function setCasamento(\Casamento $casamento) {
+    public function setCasamento(Casamento $casamento) {
         $this->casamento = $casamento;
     }
 
-    public function setFoto(\Doctrine\Common\Collections\Collection $foto) {
+    public function setFoto(Collection $foto) {
         $this->foto = $foto;
     }
 

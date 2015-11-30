@@ -15,7 +15,6 @@ use Zend\Validator\EmailAddress;
 class ConvidadoServiceImpl extends Service implements ConvidadoService{
 
     private $convidadoDao = null;
-    private $casamentoService = null;
     
     public function __construct($serviceLocator) {
         $this->setServiceLocator($serviceLocator);
@@ -129,15 +128,6 @@ class ConvidadoServiceImpl extends Service implements ConvidadoService{
         
     }
     
-    public function getCasamentoById($idCasamento) {
-        if($idCasamento === null){
-            throw new ValidationException('ID Casamento está nulo');
-        }
-        $this->casamentoService = $this->getCasamentoService();
-        $casamento = $this->casamentoService->getById((int)$idCasamento);
-        return $casamento;
-    }    
-    
     private function getConvidadoDao(){
         if($this->convidadoDao === null){
             $this->convidadoDao = $this->getServiceLocator()
@@ -145,13 +135,4 @@ class ConvidadoServiceImpl extends Service implements ConvidadoService{
         }
         return $this->convidadoDao;
     }
-    
-    private function getCasamentoService(){
-        if($this->casamentoService === null){
-            $this->casamentoService = $this->getServiceLocator()
-                    ->get('CasamentoServiceFactory');
-        }
-        return $this->casamentoService;
-    }
-    
 }

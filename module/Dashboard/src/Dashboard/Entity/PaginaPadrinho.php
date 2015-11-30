@@ -2,15 +2,17 @@
 
 namespace Dashboard\Entity;
 
+use Application\Entity\Base\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * PaginaPadrinho
  *
- * @ORM\Table(name="pagina_padrinho", indexes={@ORM\Index(name="fk_Padrinhos_Casamento", columns={"casamento_id"})})
+ * @ORM\Table(name="pagina_padrinho")
  * @ORM\Entity
  */
-class PaginaPadrinho extends Application\Entity\Base\Entity
+class PaginaPadrinho extends Entity
 {
 //    /**
 //     * @var integer
@@ -49,7 +51,7 @@ class PaginaPadrinho extends Application\Entity\Base\Entity
     private $padrinho;
     
     public function __construct() {
-        $this->padrinho = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->padrinho = new ArrayCollection();
     }
     
     public function getTexto() {
@@ -72,7 +74,7 @@ class PaginaPadrinho extends Application\Entity\Base\Entity
         $this->publicarPagina = $publicarPagina;
     }
 
-    public function setCasamento(\Casamento $casamento) {
+    public function setCasamento(Casamento $casamento) {
         $this->casamento = $casamento;
     }
     

@@ -56,7 +56,11 @@ class PlanejadorFinanceiroDAOImpl extends DAOBase implements PlanejadorFinanceir
             echo $exc->getTraceAsString();
         }   
     }
-
+    
+    public function getById($id) {
+        return $this->getEntityManager()->find('Dashboard\Entity\PlanejadorFinanceiro', $id);
+    }
+    
     public function getRepository() {
         if ($this->repository === null) {
             $this->repository = $this->getEntityManager()

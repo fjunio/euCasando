@@ -2,15 +2,16 @@
 
 namespace Dashboard\Entity;
 
+use Application\Entity\Base\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * PaginaSobreNoivos
  *
- * @ORM\Table(name="pagina_sobre_noivos", indexes={@ORM\Index(name="fk_Sobre_noivos_Cliente1", columns={"casamento_id"})})
+ * @ORM\Table(name="pagina_sobre_noivos")
  * @ORM\Entity
  */
-class PaginaSobreNoivos extends Application\Entity\Base\Entity
+class PaginaSobreNoivos extends Entity
 {
 //    /**
 //     * @var integer
@@ -30,9 +31,6 @@ class PaginaSobreNoivos extends Application\Entity\Base\Entity
 
     /**
      * @var \Casamento
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Casamento")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="casamento_id", referencedColumnName="id")
@@ -42,9 +40,6 @@ class PaginaSobreNoivos extends Application\Entity\Base\Entity
 
     /**
      * @var \Foto
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Foto")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="foto_id", referencedColumnName="id")
@@ -54,9 +49,6 @@ class PaginaSobreNoivos extends Application\Entity\Base\Entity
     
     /**
      * @var \Video
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Video")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="video_id", referencedColumnName="id")
@@ -84,15 +76,15 @@ class PaginaSobreNoivos extends Application\Entity\Base\Entity
         $this->texto = $texto;
     }
 
-    public function setCasamento(\Casamento $casamento) {
+    public function setCasamento(Casamento $casamento) {
         $this->casamento = $casamento;
     }
 
-    public function setFoto(\Foto $foto) {
+    public function setFoto(Foto $foto) {
         $this->foto = $foto;
     }
 
-    public function setVideo(\Video $video) {
+    public function setVideo(Video $video) {
         $this->video = $video;
     }
 

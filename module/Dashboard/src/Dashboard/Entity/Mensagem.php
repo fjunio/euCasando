@@ -2,15 +2,16 @@
 
 namespace Dashboard\Entity;
 
+use Application\Entity\Base\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Mensagen
  *
- * @ORM\Table(name="mensagem", indexes={@ORM\Index(name="fk_Mensagen_config_mensagem1_idx", columns={"config_mensagem_id"})})
+ * @ORM\Table(name="mensagem")
  * @ORM\Entity
  */
-class Mensagem extends Application\Entity\Base\Entity
+class Mensagem extends Entity
 {
 //    /**
 //     * @var integer
@@ -51,9 +52,6 @@ class Mensagem extends Application\Entity\Base\Entity
 
     /**
      * @var \ConfigMensagem
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="ConfigMensagem", inversedBy="mensagem")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="config_mensagem_id", referencedColumnName="id")
@@ -97,7 +95,7 @@ class Mensagem extends Application\Entity\Base\Entity
         $this->aprovada = $aprovada;
     }
 
-    public function setConfigMensagem(\ConfigMensagem $configMensagem) {
+    public function setConfigMensagem(ConfigMensagem $configMensagem) {
         $this->configMensagem = $configMensagem;
     }
 

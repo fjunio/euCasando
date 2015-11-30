@@ -2,6 +2,9 @@
 
 namespace Dashboard\Controller;
 
+use Dashboard\VO\ConfigMensagemVO;
+use Dashboard\VO\MensagemVO;
+use Dashboard\VO\PlanejadorFinanceiroVO;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -20,7 +23,18 @@ class PlanejadorFinanceiroController extends AbstractActionController {
         return $view;
     }
     
+    public function adicionarDespesaAction(){
+       return $this->redirect()
+                    ->toRoute('dashboard/default', array('controller' => 'planejador-financeiro'));
+    }
+
+
     public function deletarDespesaAction(){
+        $idDespesa = $this->params()->fromRoute('id', 0);
+        $despesaVo = new PlanejadorFinanceiroVO();
+        $despesaVo->setId((int)$idDespesa);
+        $despesaVo->setIdCasamento((int)1);
+        $this->getPlanejadorFinanceiroService()->delete($despesaVo);
         return $this->redirect()
                     ->toRoute('dashboard/default', array('controller' => 'planejador-financeiro'));
     }

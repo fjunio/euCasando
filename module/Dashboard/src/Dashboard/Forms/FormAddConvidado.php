@@ -38,7 +38,7 @@ class FormAddConvidado extends Form {
         
         //Criando campos
         $this->add(array(
-            'type' => 'Zend\Form\Element\Text',
+            'type' => 'Zend\Form\Element\Hidden',
             'name' => 'id',
         ));
         

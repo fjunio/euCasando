@@ -3,7 +3,6 @@
 namespace Dashboard\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 use Application\Entity\Base\Entity;
 
 /**

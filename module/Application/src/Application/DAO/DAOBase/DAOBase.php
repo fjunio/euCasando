@@ -42,6 +42,7 @@ abstract class DAOBase implements DAO {
         try {
             $this->getEntityManager()->persist($entity);
             $this->getEntityManager()->flush();
+            return $entity;
         } catch (ORMInvalidArgumentException $exc) {
             $this->roolback();
             throw $exc;
@@ -58,7 +59,13 @@ abstract class DAOBase implements DAO {
     }
 
     public function update(Entity $entity) {
-        
+        try {
+            $this->getEntityManager()->merge($entity);
+            $this->getEntityManager()->flush();
+        } catch (ORMInvalidArgumentException $exc) {
+            $this->roolback();
+            throw $exc;
+        }                
     }
 
     public function getEntityManager() {        
